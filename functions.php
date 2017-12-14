@@ -1,6 +1,7 @@
 <?php
 
 require_once('inc/ajax.php');
+require_once('inc/admin-customization.php');
 require_once('inc/custom-post-types.php');
 
 /* Add css sylesheets to header */
