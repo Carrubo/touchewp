@@ -1,41 +1,18 @@
 <?php
-// add a new logo to the login page
-function my_login_logo() { ?>
-  <style type="text/css">
-    .login #login h1 a {
-      height: 200px;
-      width: 200px;
-      background-image: url( <?php echo get_template_directory_uri() . '/img/logo.png'; ?> );
-      background-size: contain;
-    }
-    .login #nav a, .login #backtoblog a {
-      color: #72a411 !important;
-    }
-    .login #nav a:hover, .login #backtoblog a:hover
-    {
-      color: #628d0f !important;
-    }
-    .login #loginform .button-primary {
-      background: #72a411;
-      border-color: #72a411;
-      box-shadow: 0 1px 0 #72a411;
-      text-shadow: 0 -1px 1px #72a411, 1px 0 1px #72a411, 0 1px 1px #72a411, -1px 0 1px #72a411;
-    }
-    .login #loginform .button-primary:hover {
-      background: #628d0f;
-    }
-    .login input[type=password]:focus,
-    .login input[type=text]:focus,
-    .login input[type=checkbox]:focus {
-      border-color: #72a411;
-      box-shadow: 0 0 2px rgba(114, 164, 17, 0.8);
-    }
-    .login input[type=checkbox]:checked:before {
-      color: #72a411;
-    }
-  </style>
-<?php }
-add_action( 'login_enqueue_scripts', 'my_login_logo' );
+
+// let's start by enqueuing our styles correctly
+// function my_admin_styles() {
+//     wp_register_style( 'my_admin_stylesheet', get_stylesheet_directory_uri( '/assets/css/admin-customization.css', __FILE__ ) );
+//     wp_enqueue_style( 'my_admin_stylesheet' );
+// }
+// add_action( 'admin_enqueue_scripts', 'my_admin_styles' );
+
+
+function my_login_style() {
+  wp_register_style( 'my_login_stylesheet', get_stylesheet_directory_uri( '/assets/css/login-style.css', __FILE__ ) );
+  wp_enqueue_style( 'my_login_stylesheet' );
+}
+add_action( 'login_enqueue_scripts', 'my_login_style' );
 
 
 // remove unwanted dashboard widgets for relevant users
@@ -59,6 +36,7 @@ function my_add_dashboard_widgets() {
   }
 }
 
+// Add a text box in main admin page
 function my_add_welcome_widget() { ?>
 
     Questo è il pannello di controllo del sito Pizzeria Napulé.
@@ -108,11 +86,11 @@ add_action( 'admin_menu', 'my_remove_comments_menu_items' );
 function my_metabox_top_right() {
     add_meta_box( 'after-title-help', 'Pubblicare e salvare le modifiche', 'my_top_right_help_metabox_content', array('antipasti', 'pizze-classiche', 'pizze-speciali', 'dolci'), 'side', 'high' );
 }
+
 // callback function to populate metabox
 function my_top_right_help_metabox_content() { ?>
     <p>Assicurati di cliccare sul pulsante 'Pubblica' sottostante per pubblicare la nuova voce del menù, oppure 'Aggiorna' per salvare le modifiche.</p>
 <?php }
 add_action( 'add_meta_boxes', 'my_metabox_top_right' );
-
 
 ?>

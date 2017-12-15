@@ -19,6 +19,7 @@
     </div>
   </div>
 </div>
+
 <!-- Restaurant Menu Section -->
 <?php include(locate_template('template-parts/content-menu.php')); ?>
 
