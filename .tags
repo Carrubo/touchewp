@@ -172,6 +172,8 @@ loop	template-parts/content-menu.php	/^          $loop = new WP_Query( $args );$
 message	inc/ajax.php	/^    $message = "Message from ".$_POST['name'].": \\n\\n ". $_POST['message'] . " \\n\\n Reply to: " . $_POST['email'];$/;"	v
 my_add_dashboard_widgets	inc/admin-customization.php	/^function my_add_dashboard_widgets() {$/;"	f
 my_add_welcome_widget	inc/admin-customization.php	/^function my_add_welcome_widget() { ?>$/;"	f
+my_admin_footer_text	inc/admin-customization.php	/^function my_admin_footer_text () {$/;"	f
+my_admin_styles	inc/admin-customization.php	/^function my_admin_styles() {$/;"	f
 my_change_post_menu_label	inc/admin-customization.php	/^function my_change_post_menu_label() {$/;"	f
 my_custom_posts_listing_fields	inc/admin-customization-custom-columns.php	/^function my_custom_posts_listing_fields( $columns ) {$/;"	f
 my_login_style	inc/admin-customization.php	/^function my_login_style() {$/;"	f

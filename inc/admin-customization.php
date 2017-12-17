@@ -1,15 +1,15 @@
 <?php
 
 // let's start by enqueuing our styles correctly
-// function my_admin_styles() {
-//     wp_register_style( 'my_admin_stylesheet', get_stylesheet_directory_uri( '/assets/css/admin-customization.css', __FILE__ ) );
-//     wp_enqueue_style( 'my_admin_stylesheet' );
-// }
-// add_action( 'admin_enqueue_scripts', 'my_admin_styles' );
+function my_admin_styles() {
+    wp_register_style( 'my_admin_stylesheet', get_template_directory_uri() . '/assets/css/admin-customization.css');
+    wp_enqueue_style( 'my_admin_stylesheet' );
+}
+add_action( 'admin_enqueue_scripts', 'my_admin_styles' );
 
 
 function my_login_style() {
-  wp_register_style( 'my_login_stylesheet', get_stylesheet_directory_uri( '/assets/css/login-style.css', __FILE__ ) );
+  wp_register_style( 'my_login_stylesheet', get_stylesheet_directory_uri() . '/assets/css/login-style.css' );
   wp_enqueue_style( 'my_login_stylesheet' );
 }
 add_action( 'login_enqueue_scripts', 'my_login_style' );
@@ -92,5 +92,14 @@ function my_top_right_help_metabox_content() { ?>
     <p>Assicurati di cliccare sul pulsante 'Pubblica' sottostante per pubblicare la nuova voce del menù, oppure 'Aggiorna' per salvare le modifiche.</p>
 <?php }
 add_action( 'add_meta_boxes', 'my_metabox_top_right' );
+
+
+//change the footer text
+function my_admin_footer_text () {
+    echo 'Realizzato da mic.';
+}
+add_filter( 'admin_footer_text', 'my_admin_footer_text' );
+
+
 
 ?>
