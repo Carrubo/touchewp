@@ -2,8 +2,9 @@
 
 require_once('inc/ajax.php');
 require_once('inc/admin-customization.php');
-require_once('inc/admin-customization-custom-columns.php');
+require_once('inc/posts-listing-custom-columns.php');
 require_once('inc/custom-post-types.php');
+require_once('inc/custom-login-style.php');
 
 /* Add css sylesheets to header */
 function enqueue_my_styles() {
